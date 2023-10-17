@@ -1,0 +1,62 @@
+{% extends 'main/base.html' %}
+
+{% block title %}All Cars{% endblock %}
+{% load static %}
+{% block content %}
+
+<h1 class="text-center">Все машины ({{ cars|length }})</h1>
+
+
+<table class="table">
+  <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Модель</th>
+        <th scope="col">Марка</th>
+        <th scope="col">Цена</th>
+        <th scope="col">Просмотры</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for car in cars %}
+        <tr>
+          <th scope="row">
+            <a href="{{ car.url }}">
+                {{ car.id }}.
+            </a>
+          </th>
+          <td>
+            <div class="col-2">
+                <img src="{{ car.img.url }}" class="img-fluid">
+            </div>
+            <div class="col-3 align-self-center">
+                <p>
+                    <a href="{{ car.url }}">
+                        {{ car }} ({{ car.year }})
+                    </a>
+                </p>
+            </div>
+          </td>
+          <td>
+            <p>
+                <a href="{{ manufacturer.url }}">
+                    {{ car.manufacturer }}
+                </a>
+            </p>
+          </td>
+          <td>
+            <div class="col-1 align-self-center">
+                <p>${{ car.price }}</p>
+            </div>
+          </td>
+          <td>
+            <div class="col-10 align-self-center">
+                <p>{{ car.views }} view{{ car.views|pluralize }}</p>
+            </div>
+          </td>
+        </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

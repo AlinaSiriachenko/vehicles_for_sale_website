@@ -1,0 +1,43 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Главная страница{% endblock %}
+
+{% block content %}
+<div class="row py-lg-5">
+  <div class="col-lg-6 col-md-8 mx-auto">
+    <h1 align="center" class="fw-light">Главная страница</h1>
+    <p align="center" class="lead text-muted">Наши машины</p>
+    <p align="center">
+      <a href="{% url 'car_list' %}" class="btn btn-primary my-2">Каталог</a>
+      <a href="{% url 'contacts' %}" class="btn btn-secondary my-2">Контакты</a>
+    </p>
+  </div>
+</div>
+
+<h4 align="center">Новые поступления:</h4>
+
+<div align="center" class="row">
+    {% for car in last_cars %}
+    <div class="col-6">
+        <div class="row my-2">
+            <div class="col-10">
+                <img width="200" src="{{ car.img.url }}" class="img-fluid">
+            </div>
+            <div class="col-10">
+                <p>
+                    <a href="{{ car.url }}">
+                    {{ car }}
+                    </a>
+                </p>
+                <small>views: {{ car.views }}</small>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    <h4 align="center">
+        <a href="{% url 'car_list' %}">Все машины</a>
+    </h4>
+</div>
+
+
+{% endblock %}

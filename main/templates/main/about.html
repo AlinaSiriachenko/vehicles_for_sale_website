@@ -1,0 +1,22 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Страница о нас{% endblock %}
+
+{% block content %}
+
+
+<main class="container">
+  <div align="center">
+    <h1>О нас</h1>
+    <p class="lead">Наша компания занимается продажей машин</p>
+    <p class="lead">Каталог товаров:</p>
+    <a class="btn btn-lg btn-primary" href="{% url 'car_list' %}" role="button">Каталог »</a>
+  </div>
+</main>
+
+
+    <script src="/docs/5.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+</body>
+{% endblock %}

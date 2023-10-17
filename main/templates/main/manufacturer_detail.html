@@ -1,0 +1,26 @@
+{% extends 'main/base.html' %}
+
+{% block title %}{{ manufacturer }}{% endblock %}
+
+{% block content %}
+<h1>{{ manufacturer }}</h1>
+
+<div class="row">
+
+    <div class="col-8">
+        {% for manufacturer in manufacturers %}
+        <div class="row mb-2">
+            <div class="col-2">
+                <img src="{{ manufacturer.img }}" class="img-fluid">
+            </div>
+            <div class="col-10">
+                <a href="{{ manufacturer.get_absolute_url }}">
+                    <p>{{ manufacturer }}</p>
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
